@@ -209,3 +209,8 @@ __marimo__/
 # Virtual enviornment
 bin\
 pyvnv.cfg
+
+# Other
+data.csv
+plot.png
+share/

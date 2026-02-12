@@ -207,10 +207,9 @@ marimo/_lsp/
 __marimo__/
 
 # Virtual enviornment
-bin\
-pyvnv.cfg
+bin/
+pyvenv.cfg
 
 # Other
 data.csv
 plot.png
-share/

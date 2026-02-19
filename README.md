@@ -9,3 +9,5 @@ This project showcases:
 - Importing csv data into database using Django ORM
 
 A work in progress!
+
+![home page](images/home_page.png)

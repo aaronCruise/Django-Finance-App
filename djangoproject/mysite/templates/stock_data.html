@@ -92,6 +92,14 @@
             <button type="submit">Load Data from Database</button>
         </form>
 
+        {% load static %}
+        {% if plot_exists %}
+        <img src="{% static 'plots/plot.png' %}" 
+            alt="Plot" style="max-width: 100%; margin: 30px 0;">
+    {% else %}
+        <div class="empty-message">Plot doesn't exist yet!</div>
+    {% endif %}
+
         {% if table %}
         <div class="table-container">
             <table>

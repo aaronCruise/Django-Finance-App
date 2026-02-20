@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 
 ticker = "VT"
-output_file = "data.csv"
+output_file = "../data/data.csv"
 
 print(f"Downloading stock data for {ticker}...")
 stock = yf.Ticker(ticker)

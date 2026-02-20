@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-input_file = "data.csv"
+input_file = "../data/data.csv"
 
 dataFrame = pd.read_csv(input_file, index_col=False)
 

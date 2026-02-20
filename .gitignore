@@ -211,5 +211,4 @@ bin/
 pyvenv.cfg
 
 # Other
-data.csv
-plot.png
+data/

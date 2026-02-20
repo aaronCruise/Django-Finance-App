@@ -14,18 +14,19 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-# Hide secret key
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#Hide secret key
+load_dotenv(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError("DJANGO_SECRET_KEY enviornmental variable not set.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

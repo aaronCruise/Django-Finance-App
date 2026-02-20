@@ -10,12 +10,11 @@
 <body>
     <div class="container">
         <h1>Stock Data Viewer</h1>
-        <h2>Made using Django!</h2>
 
         <!-- POST Form -->
         <form method="post">
             {% csrf_token %}
-            <button type="submit">Load Data from Database</button>
+            <button type="submit">Reload Data from Django Database</button>
         </form>
         
         {% if table %}

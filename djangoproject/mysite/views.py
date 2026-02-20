@@ -10,7 +10,7 @@ def stock_data(request):
     table = None
     plot_path = Path(settings.BASE_DIR) / "static" / "plots" / "plot.png"
     plot_exists = plot_path.exists()
-    table = Stock.objects.all()
+    table = Stock.objects.order_by('-date')
     if DEBUG: print("Request received")
     if DEBUG: print("Stock rows count:", table.count())
     return render(request, "stock_data.html", {'table':table, 'plot_exists':plot_exists})

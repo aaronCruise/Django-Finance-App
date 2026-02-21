@@ -1,8 +1,10 @@
 """Create matplotlib visualizations of csv data."""
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
-OUTPUT_FILE = "./static/plots/plot.png"
+OUTPUT_DIR = "./static/plots/"
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "plot.png")
 
 def visualize_data(csv_path: str) -> None:
     """
@@ -26,6 +28,8 @@ def visualize_data(csv_path: str) -> None:
     plt.ylabel("Close")
     plt.title("Closing Price vs Date")
     plt.grid()
+    if not os.path.exists(OUTPUT_DIR):
+        os.mkdir(OUTPUT_DIR)
     plt.savefig(OUTPUT_FILE, dpi=100, bbox_inches="tight")
     print(f"Plotted Closing Price vs Date to {OUTPUT_FILE}")
     plt.close(fig)

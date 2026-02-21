@@ -11,7 +11,7 @@ class Stock(models.Model):
     dayHigh = models.DecimalField(max_digits=MAX_DIGITS, decimal_places=DECIMAL_PLACES, null=True, blank=True)
     dayLow = models.DecimalField(max_digits=MAX_DIGITS, decimal_places=DECIMAL_PLACES, null=True, blank=True)
     dayClose = models.DecimalField(max_digits=MAX_DIGITS, decimal_places=DECIMAL_PLACES, null=True, blank=True)
-    dayVolume = models.DecimalField(max_digits=MAX_DIGITS, decimal_places=DECIMAL_PLACES, null=True, blank=True)
+    dayVolume = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.ticker

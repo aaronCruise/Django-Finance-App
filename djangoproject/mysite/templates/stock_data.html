@@ -14,7 +14,8 @@
         <!-- POST Form -->
         <form method="post">
             {% csrf_token %}
-            <button type="submit">Reload Data from Django Database</button>
+            <input type="text" name="ticker" class="text-box" placeholder="Enter ticker symbol" required>
+            <button type="submit">Load Stock Data</button>
         </form>
         
         {% if table %}
@@ -51,12 +52,14 @@
                 No stock data loaded yet.
             </div>
         {% endif %}
+        {% if plot_exists %}
+            <img src="{% static 'plots/plot.png' %}" class="plot-img" 
+                alt="Plot">
+        {% else %}
+            <div class="empty-message">
+                No plot data yet.
+            </div>
+        {% endif %}
     </div>
-    {% if plot_exists %}
-        <img src="{% static 'plots/plot.png' %}" class="plot-img" 
-            alt="Plot">
-    {% else %}
-        <div class="empty-message">Plot doesn't exist yet!</div>
-    {% endif %}
-</body>
+    </body>
 </html>

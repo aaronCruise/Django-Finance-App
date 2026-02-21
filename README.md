@@ -21,7 +21,7 @@ A Django web application that retrieves, processes, visualizes, and stores stock
 
     ```bash
     git clone https://github.com/aaronCruise/Django-Finance-App.git
-    cd djangoproject
+    cd Django-Finance-App/djangoproject
     ```
 
 2. Install dependencies:

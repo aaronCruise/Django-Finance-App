@@ -1,3 +1,4 @@
+"""Placeholder for registering models in the admin page."""
 from django.contrib import admin
 
-# Register your models here.
+# Future improvement: Customizing admin page.

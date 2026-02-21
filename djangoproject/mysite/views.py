@@ -1,3 +1,4 @@
+"""Control the backend logic for the home page via Django view function."""
 from django.shortcuts import render
 from mysite.models import Stock
 from pathlib import Path
@@ -7,12 +8,17 @@ from pipeline.analyzer import analyze_data
 from pipeline.visualizer import visualize_data
 from pipeline.importer import import_csv_to_db
 
-DEBUG = 1
+DEBUG = True
 
-# Create your views here.
-def stock_data(request):
+def stock_data(request) -> None:
+    """
+    Main view function for the home page.
+    Contains logic to grab yfinance data using the pipeline/ functions.
+    """
     table = None
     plot_exists = False
+
+    # Request from the form submission on the home page
     if request.method == "POST":
         Stock.objects.all().delete()
         ticker = request.POST.get("ticker").upper()
@@ -26,7 +32,10 @@ def stock_data(request):
         table = Stock.objects.order_by('-date')
         if DEBUG: print("Request received")
         if DEBUG: print("Stock rows count:", table.count())
+
+    # Request from initial launch to home page. Assume user went through manual data pipeline.
     elif request.method == "GET":
-        table = Stock.objects.order_by('date') 
+        table = Stock.objects.order_by('-date') 
         plot_exists = True
+
     return render(request, "stock_data.html", {'table':table, 'plot_exists':plot_exists})

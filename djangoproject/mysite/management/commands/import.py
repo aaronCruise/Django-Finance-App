@@ -1,8 +1,7 @@
-# Create django management command to import csv dat into database
+"""Create django management command to import csv data into database."""
 from django.core.management.base import BaseCommand, CommandError
-from mysite.models import Stock
 from pipeline.importer import import_csv_to_db
-import pandas as pd
+from mysite.models import Stock
 
 class Command(BaseCommand):
     help = 'Imports CSV data into the Django ORM'

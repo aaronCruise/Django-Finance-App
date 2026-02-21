@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,13 +11,14 @@
     <div class="container">
         <h1>Stock Data Viewer</h1>
 
-        <!-- POST Form -->
+        <!-- Input form & button -->
         <form method="post">
             {% csrf_token %}
             <input type="text" name="ticker" class="text-box" placeholder="Enter ticker symbol" required>
             <button type="submit">Load Stock Data</button>
         </form>
-        
+       
+        <!-- Load table data row by row --> 
         {% if table %}
         <div class="table-container">
             <table>

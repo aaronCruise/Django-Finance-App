@@ -1,10 +1,9 @@
-# Create django management command to inspect/analyze csv data
+"""Create a django management command to analyze csv file data."""
 from django.core.management.base import BaseCommand, CommandError
-from mysite.models import Stock
 from pipeline.analyzer import analyze_data
-import pandas as pd
 
 class Command(BaseCommand):
+    """Represents the python manage.py analyze command."""
     help = 'Load csv data and inspect/analyze data'
 
     def add_arguments(self, parser):

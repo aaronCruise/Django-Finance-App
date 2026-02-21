@@ -42,32 +42,40 @@ A Django web application that retrieves, processes, visualizes, and stores stock
     python manage.py migrate
     ```
 
-### Usage:
+5. Start server:
+
+    ```bash
+    python manage.py runserver
+    ```
+or ...
+
+### Optional Manual Data Pipeline:
 5. Run the data retrieval script to generate a CSV file:
     
     ```bash
-    python scripts/download.py
+    python pipeline/downloader.py <ticker>
     ```
 
-6. Import data into Django database:
+6. Check csv data:
 
     ```bash
-    python manage.py import <../data/data.csv>
+    python pipeline/analyzer.py
     ```
 
 7. Plot visual and save:
 
     ```bash
-    python scripts/plot.py
+    python pipeline/visualizer.py
     ```
 
-8. Start server:
+8. Import data into Django database:
+
+    ```bash
+    python manage.py import data/data.csv <ticker>
+    ```
+
+9. Then start server:
 
     ```bash
     python manage.py runserver
     ```
-
-### Potential Improvements:
-    - User input for ticker
-    - Automated data retrieval, storage, and display through web view
-    - Flexible path names for saving local .csv and .png files

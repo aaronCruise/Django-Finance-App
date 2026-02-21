@@ -212,3 +212,6 @@ pyvenv.cfg
 
 # Other
 data/
+static/plots/
+djangoproject/static
+djangoproject/data

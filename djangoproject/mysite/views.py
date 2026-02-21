@@ -36,6 +36,7 @@ def stock_data(request) -> None:
     # Request from initial launch to home page. Assume user went through manual data pipeline.
     elif request.method == "GET":
         table = Stock.objects.order_by('-date') 
-        plot_exists = True
+        plot_path = Path(settings.BASE_DIR) / "static" / "plots" / "plot.png"
+        plot_exists = plot_path.exists()
 
     return render(request, "stock_data.html", {'table':table, 'plot_exists':plot_exists})

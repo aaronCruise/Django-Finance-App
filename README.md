@@ -50,22 +50,22 @@ A Django web application that retrieves, processes, visualizes, and stores stock
 or ...
 
 ### Optional Manual Data Pipeline:
-5. Run the data retrieval script to generate a CSV file:
+5. Run the data retrieval command to generate a CSV file:
     
     ```bash
-    python pipeline/downloader.py <ticker>
+    python manage.py download <ticker>
     ```
 
 6. Check csv data:
 
     ```bash
-    python pipeline/analyzer.py
+    python manage.py analyze data/data.csv
     ```
 
 7. Plot visual and save:
 
     ```bash
-    python pipeline/visualizer.py
+    python manage.py visualize data/data.csv
     ```
 
 8. Import data into Django database:
